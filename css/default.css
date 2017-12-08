@@ -1,8 +1,14 @@
+@font-face {
+    font-family: 'OpenSans Regular';
+    src: url(../vendor/fonts/OpenSans/OpenSans-Regular.ttf);
+}
+
 body {
     color: black;
     font-size: 16px;
     margin: 0px auto 0px auto;
     max-width: 16cm;
+    font-family: 'OpenSans Regular', sans-serif;
 }
 
 div#header {
@@ -47,10 +53,6 @@ h1 {
 
 h2 {
     font-size: 20px;
-}
-
-div#content {
-  font-family: sans-serif;
 }
 
 div#content a, div#footer a {

@@ -16,6 +16,10 @@ main = hakyll $ do
         route   idRoute
         compile compressCssCompiler
 
+    match "vendor/fonts/OpenSans/OpenSans-Regular.ttf" $ do
+        route idRoute
+        compile copyFileCompiler
+
     match "contact.markdown" $ do
         route   $ setExtension "html"
         compile $ pandocCompiler
