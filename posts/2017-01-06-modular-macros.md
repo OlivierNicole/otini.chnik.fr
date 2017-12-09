@@ -16,7 +16,7 @@ What does it look like?
 -----------------------
 
 The idea is to write explicitly staged code. There are two phases:
-compilation (phase 1) and execution (phase 0). The numbering seem
+compilation (phase 1) and execution (phase 0). The numbering may seem
 counter-intuitive; it is mostly because, theoretically, there may be
 several macro expansion phases before compilation (macros inside
 macros), the execution being the last phase. In that case, it is more
@@ -177,7 +177,8 @@ are not inside a quotation) are implemented differently than splices
 inside quotations (see below).
 
 For a more "real-world" example, you may consider the `printf` example
-from [\[1\]](http://www.lpw25.net/ocaml2015-abs1.pdf). A runtime
+from [Yallop and White's
+paper](https://www.cl.cam.ac.uk/~jdy22/papers/modular-macros.pdf). A runtime
 `printf` function may be defined like this:
 
 ``` {.ocaml}
@@ -269,8 +270,8 @@ type (_, _) fmt =
     Int : (int -> 'a, 'a) fmt
   | Lit : string -> ('a, 'a) fmt
   | Cat : ('a, 'b) fmt * ('b, 'c) fmt -> ('a, 'c) fmt
-static val ( % ) : ('a, 'b) fmt -> ('b, 'c) fmt -> ('a, 'c) fmt = <fun>
-macro sprintf : ('a, string) fmt -> 'a expr = <fun>
+static val ( % ) : ('a, 'b) fmt -> ('b, 'c) fmt -> ('a, 'c) fmt
+macro sprintf : ('a, string) fmt -> 'a expr
 ```
 
 We have hidden `printk` and exported only `sprintf`.
@@ -468,7 +469,8 @@ compiles with the macro compiler, but hopefully this will be fixed soon.
 Let me know if you write something nice involving macros!
 
 [^1]: White, Leo and Yallop, Jeremy, [Modular
-  macros](http://www.lpw25.net/ocaml2015-abs1.pdf), OCaml Workshop 2015.
+  macros](https://www.cl.cam.ac.uk/~jdy22/papers/modular-macros.pdf), OCaml
+  Workshop 2015.
 
 [^2]: Kiselyov, Oleg, [BER MetaOCaml](http://okmij.org/ftp/ML/MetaOCaml.html).
 
