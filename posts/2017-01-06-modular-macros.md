@@ -1,5 +1,5 @@
 ---
-title: Bringing typed, modular macros to OCaml
+title: Typed and modular macros for OCaml
 ---
 
 As part of my [OCaml Labs](https://github.com/ocamllabs) research project, I
