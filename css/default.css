@@ -44,7 +44,19 @@ div#footer {
     font-size: 12px;
     margin-top: 30px;
     padding: 12px 0px 12px 0px;
-    text-align: right;
+}
+
+div#footer div#feeds_and_social {
+    float: right;
+}
+
+div#footer div#feeds_and_social img {
+    height: 5mm;
+    width: 5mm;
+}
+
+div#footer div#feeds_and_social a {
+    border-bottom: none;
 }
 
 h1 {
