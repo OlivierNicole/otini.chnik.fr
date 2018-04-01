@@ -36,6 +36,7 @@ main = hakyll $ do
                 writerHighlight = True
               }
             >>= loadAndApplyTemplate "templates/post.html"    postCtx
+            >>= saveSnapshot "content"
             >>= loadAndApplyTemplate "templates/default.html" postCtx
             >>= relativizeUrls
 
@@ -70,9 +71,36 @@ main = hakyll $ do
 
     match "templates/*" $ compile templateBodyCompiler
 
+    -- RSS and Atom feeds
+
+    create ["rss.xml"] $ do
+      route idRoute
+      compile $ do
+        let feedCtx = postCtx `mappend` bodyField "description"
+        posts <- fmap (take 10) . recentFirst =<<
+          loadAllSnapshots "posts/*" "content"
+        renderRss feedConfig feedCtx posts
+
+    create ["atom.xml"] $ do
+      route idRoute
+      compile $ do
+        let feedCtx = postCtx `mappend` bodyField "description"
+        posts <- fmap (take 10) . recentFirst =<<
+          loadAllSnapshots "posts/*" "content"
+        renderAtom feedConfig feedCtx posts
+
 
 --------------------------------------------------------------------------------
 postCtx :: Context String
 postCtx =
     dateField "date" "%B %e, %Y" `mappend`
     defaultContext
+
+feedConfig :: FeedConfiguration
+feedConfig = FeedConfiguration
+    { feedTitle       = "Otini's weblog"
+    , feedDescription = "Blog posts from Olivier Nicole"
+    , feedAuthorName  = "Olivier Nicole"
+    , feedAuthorEmail = "test@example.com"
+    , feedRoot        = "https://otini.chnik.fr"
+    }
