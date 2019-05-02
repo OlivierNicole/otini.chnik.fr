@@ -28,6 +28,10 @@ main = hakyll $ do
         route idRoute
         compile copyFileCompiler
 
+    match "files/*" $ do
+        route idRoute
+        compile copyFileCompiler
+
     match "contact.markdown" $ do
         route   $ setExtension "html"
         compile $ pandocCompiler
