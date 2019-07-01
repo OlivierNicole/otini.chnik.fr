@@ -19,6 +19,8 @@ Please do not hesitate to [contact me](/contact.html) to suggest answers or impr
   ignore this package's updates in order to upgrade the rest of the
   packages?](#ignorepkg)
 
+Many thanks to Andrew Miloradovsky and Daniel Barlow for their answers.
+
 ## How can I build a package locally instead of downloading the binary?  {#build-local}
 
 Add `--option substitute false`, or set it globally. (search `man nix.conf` for
@@ -26,7 +28,16 @@ Add `--option substitute false`, or set it globally. (search `man nix.conf` for
 
 ## How can I get the Nix directory (containing the code and Nix files) of a package? {#get-nix-files}
 
-To be filled
+Here I simply copy Andrew Miloradovsy's answer:
+
+It's all in `~/.nix-defexpr/channels_root/nixos/`, or in the user's own
+channel(s).  See there `pkgs/top-level/all-packages.nix`, where all the
+“packages” have to be registered: some are paths to an actual file with a
+Nix-expression, some are functions, generating the “packages” for each
+combination of inputs.
+
+But you can't/shouldn't edit those. Clone the Nixpkgs repository instead and
+edit it in there.
 
 ## How to find the Nix store path associated to an installed package?  {#find-store-path}
 
