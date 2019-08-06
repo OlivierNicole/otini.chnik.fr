@@ -104,3 +104,11 @@ p .sourceCode, p code {
     padding-left: 1mm;
     padding-right: 1mm;
 }
+
+.pronunciation::before {
+  content: "/";
+}
+
+.pronunciation::after {
+  content: "/";
+}
