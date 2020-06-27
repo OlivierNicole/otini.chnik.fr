@@ -7,13 +7,14 @@ body {
     color: black;
     font-size: 16px;
     margin: 0px auto 0px auto;
+    padding: .4em;
     max-width: 16cm;
     font-family: 'OpenSans Regular', sans-serif;
 }
 
 div#header {
     border-bottom: 2px solid black;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
     padding: 12px 0px 12px 0px;
 }
 
@@ -23,6 +24,22 @@ div#logo a {
     font-size: 18px;
     font-weight: bold;
     text-decoration: none;
+}
+
+div#langselector {
+    margin-top: 0px;
+    padding-top: 0px;
+    margin-bottom: 2px;
+    text-align: right;
+    font-size: 80%;
+    color: gray;
+}
+
+div#langselector a {
+    color: rgb(200,0,0);
+    text-decoration: none;
+    border-bottom: 1px dashed rgb(200,0,0);
+    margin-left: 1em;
 }
 
 div#header #navigation {
@@ -61,6 +78,7 @@ div#footer div#feeds_and_social a {
 
 h1 {
     font-size: 24px;
+    margin-top: 0px;
 }
 
 h2 {

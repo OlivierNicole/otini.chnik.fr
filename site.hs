@@ -4,7 +4,6 @@ import Data.Monoid (mappend)
 import Hakyll
 import Text.Pandoc.Options
 
-
 --------------------------------------------------------------------------------
 main :: IO ()
 main = hakyll $ do
@@ -32,11 +31,15 @@ main = hakyll $ do
         route idRoute
         compile copyFileCompiler
 
-    match "contact.markdown" $ do
+    match "contact.**.markdown" $ do
         route   $ setExtension "html"
-        compile $ pandocCompiler
-            >>= loadAndApplyTemplate "templates/default.html" defaultContext
-            >>= relativizeUrls
+        compile $ do
+            lang <- getLang . toFilePath <$> getUnderlying
+            let ctx = defaultContext
+            pandocCompiler
+              >>= loadAndApplyTemplate
+                (fromFilePath $ "templates/default."++lang++".html") ctx
+              >>= relativizeUrls
 
     match "posts/*" $ do
         route $ setExtension "html"
@@ -45,42 +48,41 @@ main = hakyll $ do
               }
             >>= loadAndApplyTemplate "templates/post.html"    postCtx
             >>= saveSnapshot "content"
-            >>= loadAndApplyTemplate "templates/default.html" postCtx
+            >>= loadAndApplyTemplate "templates/default.en.html" postCtx
             >>= relativizeUrls
 
-    create ["archive.html"] $ do
+    create (map (\l -> fromFilePath $ "archive."++l++".html") langs) $ do
         route idRoute
         compile $ do
             posts <- recentFirst =<< loadAll "posts/*"
+            lang <- getLang . toFilePath <$> getUnderlying
             let archiveCtx =
                     listField "posts" postCtx (return posts) `mappend`
-                    constField "title" "Archives"            `mappend`
+                    langContextArchive lang                  `mappend`
                     defaultContext
-
             makeItem ""
-                >>= loadAndApplyTemplate "templates/archive.html" archiveCtx
-                >>= loadAndApplyTemplate "templates/default.html" archiveCtx
+                >>= loadAndApplyTemplate (fromFilePath $ "templates/archive."++lang++".html") archiveCtx
+                >>= loadAndApplyTemplate (fromFilePath $ "templates/default."++lang++".html") archiveCtx
                 >>= relativizeUrls
 
 
-    match "index.html" $ do
+    match "index.**.html" $ do
         route idRoute
         compile $ do
-            posts <- recentFirst =<< loadAll "posts/*"
+            lang <- getLang . toFilePath <$> getUnderlying
             let indexCtx =
-                    listField "posts" postCtx (return posts) `mappend`
-                    constField "title" "Home"                `mappend`
+                    langContextHome lang                         `mappend`
                     defaultContext
-
-            getResourceBody
-                >>= applyAsTemplate indexCtx
-                >>= loadAndApplyTemplate "templates/default.html" indexCtx
-                >>= relativizeUrls
+            getResourceBody >>= loadAndApplyTemplate
+                (fromFilePath $ "templates/default."++lang++".html")
+                indexCtx
+              >>= relativizeUrls
 
     match "templates/*" $ compile templateBodyCompiler
 
     -- RSS and Atom feeds
 
+    {-
     create ["rss.xml"] $ do
       route idRoute
       compile $ do
@@ -96,9 +98,30 @@ main = hakyll $ do
         posts <- fmap (take 10) . recentFirst =<<
           loadAllSnapshots "posts/*" "content"
         renderAtom feedConfig feedCtx posts
+    -}
 
 
 --------------------------------------------------------------------------------
+
+langs :: [String]
+langs = ["fr","en","eo"]
+
+getLang :: FilePath -> String
+getLang path =
+  case dropWhile (/= '.') path of
+  [] -> "en"
+  _ : tl -> takeWhile (/= '.') tl
+
+langContextHome :: String -> Context a
+langContextHome "fr" = constField "title" "Accueil"
+langContextHome "eo" = constField "title" "Hejmo"
+langContextHome _ = constField "title" "Home"
+
+langContextArchive :: String -> Context a
+langContextArchive "fr" = constField "title" "Billets"
+langContextArchive "eo" = constField "title" "Publikaĵoj"
+langContextArchive _ = constField "title" "Posts"
+
 postCtx :: Context String
 postCtx =
     dateField "date" "%B %e, %Y" `mappend`
