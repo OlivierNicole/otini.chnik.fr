@@ -9,5 +9,5 @@ String.concat "@" ["olivier"; dmn]
 
 Publika GPG-ŝlosilo: [CB4B4C11](files/pubkey_nicole.asc)
 
-Mi also atingeblas en la fediverso kiel
+Mi ankaŭ atingeblas en la fediverso kiel
 [\@otini@functional.cafe](https://functional.cafe/@otini).
