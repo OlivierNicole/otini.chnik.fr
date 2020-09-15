@@ -17,10 +17,13 @@ Les points vus dans le cours sont :
   ([Diapos](logique_slides.pdf))
 * Raisonnement ([Cours complet](raisonnement_full.pdf)) ([Cours
   minimal](raisonnement_minimal.pdf)) ([Diapos](raisonnement_slides.pdf))
-* Théorie des ensembles
+* Théorie des ensembles ([Cours complet](ensembles_full.pdf)) ([Cours
+  minimal](ensembles_minimal.pdf)) (Pas de diapos)
 * Fonctions
 * Raisonnement par récurrence.
 
 ## Exercices
 
 * [TD 1 : logique propositionnelle et logique des prédicats](TD_logique.pdf)
+* Raisonnement : pas de TD, je préfère vous faire pratiquer le raisonnement sur
+  les TD suivants.
