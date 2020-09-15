@@ -15,9 +15,10 @@ Les points vus dans le cours sont :
 * Calcul propositionnel et calcul des prédicats ([Cours
   complet](logique_full.pdf)) ([Cours minimal](logique_minimal.pdf))
   ([Diapos](logique_slides.pdf))
-* Raisonnement
-* Fonctions
+* Raisonnement ([Cours complet](raisonnement_full.pdf)) ([Cours
+  minimal](raisonnement_minimal.pdf)) ([Diapos](raisonnement_slides.pdf))
 * Théorie des ensembles
+* Fonctions
 * Raisonnement par récurrence.
 
 ## Exercices
