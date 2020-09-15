@@ -5,6 +5,11 @@ title: FdV 2020 — Mathématiques S1
 Attention, les documents de cours sont sujets à modification jusqu'au jours du
 cours.
 
+Ce matériel de cours est issu, avec quelques modifications, du travail de [Marc
+Chevalier](https://teaching.marc-chevalier.com).
+
+## Cours
+
 Les points vus dans le cours sont :
 
 * Calcul propositionnel et calcul des prédicats ([Cours
@@ -14,3 +19,7 @@ Les points vus dans le cours sont :
 * Fonctions
 * Théorie des ensembles
 * Raisonnement par récurrence.
+
+## Exercices
+
+* [TD 1 : logique propositionnelle et logique des prédicats](TD_logique.pdf)
