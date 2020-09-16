@@ -25,5 +25,6 @@ Les points vus dans le cours sont :
 ## Exercices
 
 * [TD 1 : logique propositionnelle et logique des prédicats](TD_logique.pdf)
+  ([corrigé](TD_logique_corrige.pdf))
 * Raisonnement : pas de TD, je préfère vous faire pratiquer le raisonnement sur
   les TD suivants.
