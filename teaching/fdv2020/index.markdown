@@ -19,8 +19,9 @@ Les points vus dans le cours sont :
   minimal](raisonnement_minimal.pdf)) ([Diapos](raisonnement_slides.pdf))
 * Théorie des ensembles ([Cours complet](ensembles_full.pdf)) ([Cours
   minimal](ensembles_minimal.pdf)) (Pas de diapos)
+* Raisonnement par récurrence ([Cours complet](recurrence_full.pdf)) ([Cours
+  minimal](recurrence_minimal.pdf)) (Pas de diapos)
 * Fonctions
-* Raisonnement par récurrence.
 
 ## Exercices
 
@@ -28,3 +29,5 @@ Les points vus dans le cours sont :
   ([corrigé](TD_logique_corrige.pdf))
 * Raisonnement : pas de TD, je préfère vous faire pratiquer le raisonnement sur
   les TD suivants.
+* [TD 2 : ensembles](TD_ensembles.pdf) (corrigé)
+* [TD 3 : raisonnement par récurrence](TD_recurrence.pdf) (corrigé)
