@@ -29,5 +29,5 @@ Les points vus dans le cours sont :
   ([corrigé](TD_logique_corrige.pdf))
 * Raisonnement : pas de TD, je préfère vous faire pratiquer le raisonnement sur
   les TD suivants.
-* [TD 2 : ensembles](TD_ensembles.pdf) (corrigé)
+* [TD 2 : ensembles](TD_ensembles.pdf) ([corrigé](TD_ensembles_corrige.pdf))
 * [TD 3 : raisonnement par récurrence](TD_recurrence.pdf) (corrigé)
