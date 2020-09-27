@@ -21,7 +21,8 @@ Les points vus dans le cours sont :
   minimal](ensembles_minimal.pdf)) (Pas de diapos)
 * Raisonnement par récurrence ([Cours complet](recurrence_full.pdf)) ([Cours
   minimal](recurrence_minimal.pdf)) (Pas de diapos)
-* Fonctions
+* Fonctions ([Cours complet](fonctions_full.pdf)) ([Cours
+  minimal](fonctions_minimal.pdf)) (Pas de diapos)
 
 ## Exercices
 
@@ -31,3 +32,4 @@ Les points vus dans le cours sont :
   les TD suivants.
 * [TD 2 : ensembles](TD_ensembles.pdf) ([corrigé](TD_ensembles_corrige.pdf))
 * [TD 3 : raisonnement par récurrence](TD_recurrence.pdf) (corrigé)
+* [TD 4 : fonctions](TD_fonctions.pdf) (corrigé)
