@@ -35,3 +35,4 @@ Les points vus dans le cours sont :
 * [TD 4 : fonctions](TD_fonctions.pdf) (corrigé)
 * [TD 5 : fonctions (bis)](TD_fonctions_bis.pdf) (corrigé)
 * [TD 6 : relations](TD_relations.pdf) (corrigé)
+* [Test : logique, ensembles, récurrence](test_2020-2021.pdf) (corrigé)
