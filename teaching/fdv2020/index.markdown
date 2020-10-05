@@ -31,8 +31,11 @@ Les points vus dans le cours sont :
 * Raisonnement : pas de TD, je préfère vous faire pratiquer le raisonnement sur
   les TD suivants.
 * [TD 2 : ensembles](TD_ensembles.pdf) ([corrigé](TD_ensembles_corrige.pdf))
-* [TD 3 : raisonnement par récurrence](TD_recurrence.pdf) (corrigé)
-* [TD 4 : fonctions](TD_fonctions.pdf) (corrigé)
-* [TD 5 : fonctions (bis)](TD_fonctions_bis.pdf) (corrigé)
-* [TD 6 : relations](TD_relations.pdf) (corrigé)
-* [Test : logique, ensembles, récurrence](test_2020-2021.pdf) (corrigé)
+* [TD 3 : raisonnement par récurrence](TD_recurrence.pdf)
+  ([corrigé](TD_recurrence_corrige.pdf))
+* [TD 4 : fonctions](TD_fonctions.pdf) ([corrigé](TD_fonctions_corrige.pdf))
+* [TD 5 : fonctions (bis)](TD_fonctions_bis.pdf)
+  ([corrigé](TD_fonctions_bis_corrige.pdf))
+* [TD 6 : relations](TD_relations.pdf) ([corrigé](TD_relations_corrige.pdf))
+* [Test : logique, ensembles, récurrence](test_2020-2021.pdf)
+  ([corrigé](test_2020-2021_corrige.pdf))
