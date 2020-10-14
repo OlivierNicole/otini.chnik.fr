@@ -39,3 +39,7 @@ Les points vus dans le cours sont :
 * [TD 6 : relations](TD_relations.pdf) ([corrigé](TD_relations_corrige.pdf))
 * [Test : logique, ensembles, récurrence](test_2020-2021.pdf)
   ([corrigé](test_2020-2021_corrige.pdf))
+
+## Examens et devoirs
+
+* [DM 1 : logique, théorie des ensembles et fonctions](DM_2020-2021.pdf)
