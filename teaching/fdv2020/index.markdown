@@ -43,3 +43,4 @@ Les points vus dans le cours sont :
 ## Examens et devoirs
 
 * [DM 1 : logique, théorie des ensembles et fonctions](DM_2020-2021.pdf)
+  ([corrigé](DM_2020-2021_corrige.pdf))
