@@ -27,6 +27,14 @@ main = hakyll $ do
         route idRoute
         compile copyFileCompiler
 
+    match "talks/*.pdf" $ do
+        route idRoute
+        compile copyFileCompiler
+
+    match "talks/ressi_2020.mp4" $ do
+        route idRoute
+        compile copyFileCompiler
+
     match "files/*" $ do
         route idRoute
         compile copyFileCompiler
