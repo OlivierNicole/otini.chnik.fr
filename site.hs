@@ -101,6 +101,19 @@ main = hakyll $ do
                 (fromFilePath $ "templates/default.fr.html") ctx
               >>= relativizeUrls
 
+    match "teaching/fdv2020_s2/*.pdf" $ do
+        route idRoute
+        compile copyFileCompiler
+
+    match "teaching/fdv2020_s2/index.markdown" $ do
+        route $ setExtension "html"
+        compile $ do
+            let ctx = defaultContext
+            pandocCompiler
+              >>= loadAndApplyTemplate
+                (fromFilePath $ "templates/default.fr.html") ctx
+              >>= relativizeUrls
+
     -- RSS and Atom feeds
 
     {-
