@@ -11,8 +11,8 @@ Les points vus dans le cours sont :
 
 * Espaces vectoriels ([Cours](ev_minimal.pdf))
 * Familles de vecteurs, dimension finie ([Cours](familles_minimal.pdf)) ([Diapos](familles_slides.pdf))
-* Morphismes et matrices ([Diapos](morphismes_matrices_slides.pdf))
-* (Peut-être) Introduction à la réduction des endomorphismes
+* Applications linéaires et matrices ([Diapos](morphismes_matrices_slides.pdf))
+* Changement de base et ses applications ([Diapos](elements_propres_slides.pdf))
 
 ## Exercices
 
