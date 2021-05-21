@@ -23,6 +23,10 @@ main = hakyll $ do
         route idRoute
         compile copyFileCompiler
 
+    match "vendor/img/*.png" $ do
+        route idRoute
+        compile copyFileCompiler
+
     match "papers/*.pdf" $ do
         route idRoute
         compile copyFileCompiler

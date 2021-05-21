@@ -130,3 +130,13 @@ p .sourceCode, p code {
 .pronunciation::after {
   content: "/";
 }
+
+.award {
+  font-weight: bold;
+}
+
+.award img {
+  height: 6mm;
+  padding-top: 1mm;
+  vertical-align: text-top;
+}
