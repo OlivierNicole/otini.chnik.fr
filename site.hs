@@ -1,8 +1,8 @@
 --------------------------------------------------------------------------------
 {-# LANGUAGE OverloadedStrings #-}
-import Data.Monoid (mappend)
-import Hakyll
-import Text.Pandoc.Options
+import           Data.Monoid (mappend)
+import           Hakyll
+
 
 --------------------------------------------------------------------------------
 main :: IO ()
@@ -46,18 +46,16 @@ main = hakyll $ do
     match "contact.**.markdown" $ do
         route   $ setExtension "html"
         compile $ do
-            lang <- getLang . toFilePath <$> getUnderlying
-            let ctx = defaultContext
-            pandocCompiler
+          lang <- getLang . toFilePath <$> getUnderlying
+          let ctx = defaultContext
+          pandocCompiler
               >>= loadAndApplyTemplate
                 (fromFilePath $ "templates/default."++lang++".html") ctx
               >>= relativizeUrls
 
     match "posts/*" $ do
         route $ setExtension "html"
-        compile $ pandocCompilerWith def def{
-                writerHighlight = True
-              }
+        compile $ pandocCompiler
             >>= loadAndApplyTemplate "templates/post.html"    postCtx
             >>= saveSnapshot "content"
             >>= loadAndApplyTemplate "templates/default.en.html" postCtx
@@ -72,6 +70,7 @@ main = hakyll $ do
                     listField "posts" postCtx (return posts) `mappend`
                     langContextArchive lang                  `mappend`
                     defaultContext
+
             makeItem ""
                 >>= loadAndApplyTemplate (fromFilePath $ "templates/archive."++lang++".html") archiveCtx
                 >>= loadAndApplyTemplate (fromFilePath $ "templates/default."++lang++".html") archiveCtx
@@ -83,12 +82,16 @@ main = hakyll $ do
         compile $ do
             lang <- getLang . toFilePath <$> getUnderlying
             let indexCtx =
-                    langContextHome lang                         `mappend`
+                    --listField "posts" postCtx (return posts) `mappend`
+                    langContextHome lang                       `mappend`
                     defaultContext
-            getResourceBody >>= loadAndApplyTemplate
-                (fromFilePath $ "templates/default."++lang++".html")
-                indexCtx
-              >>= relativizeUrls
+
+            getResourceBody
+                >>= applyAsTemplate indexCtx
+                >>= loadAndApplyTemplate
+                      (fromFilePath $ "templates/default."++lang++".html")
+                      indexCtx
+                >>= relativizeUrls
 
     match "templates/*" $ compile templateBodyCompiler
 
@@ -118,26 +121,6 @@ main = hakyll $ do
                 (fromFilePath $ "templates/default.fr.html") ctx
               >>= relativizeUrls
 
-    -- RSS and Atom feeds
-
-    {-
-    create ["rss.xml"] $ do
-      route idRoute
-      compile $ do
-        let feedCtx = postCtx `mappend` bodyField "description"
-        posts <- fmap (take 10) . recentFirst =<<
-          loadAllSnapshots "posts/*" "content"
-        renderRss feedConfig feedCtx posts
-
-    create ["atom.xml"] $ do
-      route idRoute
-      compile $ do
-        let feedCtx = postCtx `mappend` bodyField "description"
-        posts <- fmap (take 10) . recentFirst =<<
-          loadAllSnapshots "posts/*" "content"
-        renderAtom feedConfig feedCtx posts
-    -}
-
 
 --------------------------------------------------------------------------------
 
@@ -164,12 +147,3 @@ postCtx :: Context String
 postCtx =
     dateField "date" "%B %e, %Y" `mappend`
     defaultContext
-
-feedConfig :: FeedConfiguration
-feedConfig = FeedConfiguration
-    { feedTitle       = "Otini's weblog"
-    , feedDescription = "Blog posts from Olivier Nicole"
-    , feedAuthorName  = "Olivier Nicole"
-    , feedAuthorEmail = "test@example.com"
-    , feedRoot        = "https://otini.chnik.fr"
-    }
