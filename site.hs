@@ -93,6 +93,21 @@ main = hakyll $ do
                       indexCtx
                 >>= relativizeUrls
 
+    -- Create `index.html` as a copy of `index.en.html`
+    match "index.en.html" $ version "index" $ do
+        route $ constRoute "index.html"
+        compile $ do
+            let lang = "en"
+            let indexCtx =
+                    langContextHome "en"                       `mappend`
+                    defaultContext
+            getResourceBody
+                >>= applyAsTemplate indexCtx
+                >>= loadAndApplyTemplate
+                      (fromFilePath $ "templates/default.en.html")
+                      indexCtx
+                >>= relativizeUrls
+
     match "templates/*" $ compile templateBodyCompiler
 
     match "teaching/fdv2020/*.pdf" $ do
