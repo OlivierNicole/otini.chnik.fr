@@ -27,4 +27,4 @@ Prerequisites:
   ```
 
 You can now run `nix run . build` to build the website in the `_site`
-subdirectory, or `nix run . watch` to view it at <http://localhost:8080>.
+subdirectory, or `nix run . watch` to view it at <http://localhost:8000>.
